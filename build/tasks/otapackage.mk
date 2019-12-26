@@ -41,6 +41,8 @@ otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 	@echo "                                                               " >&2
 	@echo "                                                               " >&2
 	@echo ""
+	@echo "Creating json OTA..." >&2
+	$(hide) ./vendor/rising/build/tools/createjson.sh $(TARGET_DEVICE) $(PRODUCT_OUT) rising-$(RISING_BUILD_VERSION)-ota.zip $(RISING_VERSION) $(RISING_CODENAME)
 	@echo ":·.·.·::·.·.·::·.·.·::·.·.·::·.·.·::·.·.·::·.·.·::·.·.·::·.·.·:" >&2
 	@echo " Size            : $(shell du -hs $(RISING_TARGET_PACKAGE) | awk '{print $$1}')"
 	@echo " Size(in bytes)  : $(shell wc -c $(RISING_TARGET_PACKAGE) | awk '{print $$1}')"
