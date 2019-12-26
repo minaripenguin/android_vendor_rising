@@ -24,4 +24,20 @@ SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LINEAGE_TARGET_PACKAGE)
 	$(hide) $(SHA256) $(LINEAGE_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(LINEAGE_TARGET_PACKAGE).sha256sum
-	@echo "Package Complete: $(LINEAGE_TARGET_PACKAGE)" >&2
+	@echo "Creating json OTA..." >&2
+	$(hide) ./vendor/lineage/build/tools/createjson.sh $(TARGET_DEVICE) $(PRODUCT_OUT) $(LINEAGE_VERSION).zip v$(RISING_CODE) $(RISING_CODENAME)
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "  ______ _____ _______ _____ __   _  ______       _____  _______" >&2
+	@echo " |_____/   |   |______   |   | \  | |  ____      |     | |______" >&2
+	@echo " |    \_ __|__ ______| __|__ |  \_| |_____|      |_____| ______|" >&2
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "                   rising from the bottom                       " >&2
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "         Package Complete: $(LINEAGE_TARGET_PACKAGE)            " >&2
