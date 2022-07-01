@@ -88,6 +88,7 @@ PRODUCT_PACKAGES += \
     GameSpace \
     OmniJaws \
     ParallelSpace \
+    RepainterServicePriv \
     Updater
 
 ifeq ($(TARGET_USE_PIXEL_FINGERPRINT), true)
