@@ -230,6 +230,57 @@ bootloader_message_offset {
 }
 
 soong_config_module_type {
+    name: "needs_camera_boottime",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    bool_variables: ["needs_camera_boottime"],
+    properties: ["cppflags"],
+}
+
+needs_camera_boottime {
+    name: "needs_camera_boottime_defaults",
+    soong_config_variables: {
+        needs_camera_boottime: {
+            cppflags: ["-DTARGET_CAMERA_BOOTTIME_TIMESTAMP"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "uses_oplus_camera",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    bool_variables: ["uses_oplus_camera"],
+    properties: ["cppflags"],
+}
+
+uses_oplus_camera {
+    name: "uses_oplus_camera_defaults",
+    soong_config_variables: {
+        uses_oplus_camera: {
+            cppflags: ["-DUSES_OPLUS_CAMERA"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "uses_nothing_camera",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    bool_variables: ["uses_nothing_camera"],
+    properties: ["cppflags"],
+}
+
+uses_nothing_camera {
+    name: "uses_nothing_camera_defaults",
+    soong_config_variables: {
+        uses_nothing_camera: {
+            cppflags: ["-DUSES_NOTHING_CAMERA"],
+        },
+    },
+}
+
+soong_config_module_type {
     name: "egl_display_array",
     module_type: "cc_defaults",
     config_namespace: "lineageGlobalVars",
