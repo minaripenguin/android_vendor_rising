@@ -6,10 +6,17 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.notification_sound=oneplus.ogg \
     ro.config.alarm_alert=into_the_night.ogg
 
-TARGET_EXCLUDES_APERTURE ?= true
-ifneq ($(TARGET_EXCLUDES_APERTURE),true)
+ifeq ($(strip $(TARGET_BUILD_APERTURE_CAMERA)),true)
 PRODUCT_PACKAGES += \
     Aperture
+
+PRODUCT_PACKAGE_OVERLAYS += \
+    vendor/lineage/overlay/aperture
+endif
+
+ifeq ($(strip $(TARGET_BUILD_GRAPHENE_CAMERA)),true)
+PRODUCT_PACKAGES += \
+    GrapheneCamera
 endif
 
 # Apps
