@@ -33,6 +33,7 @@ SOONG_CONFIG_lineageGlobalVars += \
     bootloader_message_offset \
     disable_bluetooth_le_read_buffer_size_v2 \
     disable_bluetooth_le_set_host_feature \
+    bootloader_message_offset \
     gralloc_handle_has_reserved_size \
     target_health_charging_control_charging_path \
     target_health_charging_control_charging_enabled \
