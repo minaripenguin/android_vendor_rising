@@ -118,6 +118,7 @@ PRODUCT_PACKAGES += \
 
 # Lineage packages
 PRODUCT_PACKAGES += \
+    GameSpace \
     LineageParts \
     LineageSettingsProvider \
     LineageSetupWizard \
