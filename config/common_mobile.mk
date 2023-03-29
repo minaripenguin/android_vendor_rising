@@ -6,17 +6,19 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.notification_sound=oneplus.ogg \
     ro.config.alarm_alert=into_the_night.ogg
 
+TARGET_EXCLUDES_APERTURE ?= true
+ifneq ($(TARGET_EXCLUDES_APERTURE),true)
+PRODUCT_PACKAGES += \
+    Aperture
+endif
+
 # Apps
 PRODUCT_PACKAGES += \
-    Aperture \
     Backgrounds \
-    Eleven \
-    Etar \
-    ExactCalculator \
-    Jelly \
     Profiles \
     Seedvault
 
+TARGET_EXCLUDES_AUDIOFX ?=true
 ifneq ($(TARGET_EXCLUDES_AUDIOFX),true)
 PRODUCT_PACKAGES += \
     AudioFX
