@@ -9,7 +9,7 @@ $(call inherit-product-if-exists, external/faceunlock/config.mk)
 
 TARGET_CORE_GMS ?= true
 
-PRODUCT_BRAND ?= LineageOS
+PRODUCT_BRAND ?= RisingOS
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
