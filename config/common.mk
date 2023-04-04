@@ -4,6 +4,7 @@ $(call inherit-product-if-exists, vendor/addons/config.mk)
 $(call inherit-product-if-exists, vendor/lineage/fonts/fonts.mk)
 $(call inherit-product-if-exists, vendor/lineage/audio/audio.mk)
 $(call inherit-product-if-exists, external/faceunlock/config.mk)
+$(call inherit-product, packages/services/VncFlinger/product.mk)
 
 -include vendor/gms/products/gms.mk
 
@@ -12,6 +13,13 @@ TARGET_CORE_GMS ?= true
 PRODUCT_BRAND ?= RisingOS
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
+# DesktopMode
+PRODUCT_PACKAGES += \
+    DesktopMode
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.freeform_window_management.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.freeform_window_management.xml
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
