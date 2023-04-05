@@ -1,2 +1,2 @@
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/kernel)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/KERNEL_OBJ)
+# Wipe all KERNEL_OBJ folders including other devices kernel objects
+$(call add-clean-step, rm -rf $(wildcard out/target/product/*/obj/KERNEL_OBJ))
