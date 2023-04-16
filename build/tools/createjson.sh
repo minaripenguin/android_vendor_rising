@@ -115,6 +115,9 @@ if [ -f $existingOTAjson ]; then
 		}
 	]
 }' >> $output
+
+	cat $output
+
 else
 	filename=$3
 	version=$4-$5
@@ -153,7 +156,8 @@ else
 		}
 	]
 }' >> $output
-
+	
+	cat $output
 	echo 'There is no official support for this device yet'
 	echo 'Consider adding official support by reading the documentation at https://github.com/risingOSS-devices/android_vendor_RisingOTA/blob/thirteen/README.md'
 fi
