@@ -15,8 +15,15 @@ endif
 # Apps
 PRODUCT_PACKAGES += \
     Backgrounds \
-    Profiles \
-    Seedvault
+    Profiles
+
+# Seedvault
+TARGET_EXCLUDES_SEEDVAULT ?=true
+ifneq ($(TARGET_EXCLUDES_SEEDVAULT),true)
+PRODUCT_PACKAGES += \
+    Seedvault \
+    OverlaySettingsProvider
+endif
 
 TARGET_EXCLUDES_AUDIOFX ?=true
 ifneq ($(TARGET_EXCLUDES_AUDIOFX),true)

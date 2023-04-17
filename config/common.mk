@@ -9,6 +9,7 @@ $(call inherit-product, packages/services/VncFlinger/product.mk)
 
 -include vendor/gms/products/gms.mk
 
+WITH_GMS ?= true
 TARGET_CORE_GMS ?= true
 
 PRODUCT_BRAND ?= RisingOS

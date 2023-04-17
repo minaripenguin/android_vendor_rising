@@ -48,9 +48,11 @@ endif
 RISING_BUILDTYPE ?= Community
 
 ifeq ($(WITH_GMS), true)
-    RISING_PACKAGE_TYPE ?= GAPPS
-else ifeq ($(TARGET_CORE_GMS), true)
-    RISING_PACKAGE_TYPE ?= CORE
+    ifeq ($(TARGET_CORE_GMS), true)
+        RISING_PACKAGE_TYPE ?= CORE
+    else 
+        RISING_PACKAGE_TYPE ?= GAPPS
+    endif
 else
     RISING_PACKAGE_TYPE ?= AOSP
 endif
