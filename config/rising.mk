@@ -72,6 +72,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.powerhal.interaction.max_default=64 \
     persist.sys.powerhal.interaction.max_boost=500
 
+# BtHelper
+PRODUCT_PACKAGES += \
+    BtHelper
+
 # DesktopMode
 PRODUCT_PACKAGES += \
     DesktopMode
