@@ -33,7 +33,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.rising.display.version?=$(LINEAGE_DISPLAY_VERSION) \
     ro.rising.platform_release_codename=$(RISING_FLAVOR)
 
-TARGET_ENABLE_PRIVAPP_ENFORCEMENT ?= true
+TARGET_ENABLE_PRIVAPP_ENFORCEMENT ?= false
 ifeq ($(TARGET_ENABLE_PRIVAPP_ENFORCEMENT), true)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.control_privapp_permissions=enforce
