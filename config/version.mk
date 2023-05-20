@@ -45,8 +45,6 @@ else
     LINEAGE_BUILD_DATE := $(shell date -u +%Y%m%d)
 endif
 
-RISING_BUILDTYPE ?= Community
-
 ifeq ($(WITH_GMS), true)
     ifeq ($(TARGET_CORE_GMS), true)
         RISING_PACKAGE_TYPE ?= CORE
