@@ -56,5 +56,8 @@
 
         <!-- Enable the new and advanced Privacy Hub -->
         <item>privacy/safety_center_is_enabled=true</item>
+
+        <!-- Enable protected by android banner -->
+        <item>privacy/safety_protection_enabled=true</item>
     </string-array>
 </resources>
