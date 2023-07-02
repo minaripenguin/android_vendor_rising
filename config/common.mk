@@ -7,7 +7,15 @@ $(call inherit-product-if-exists, vendor/lineage/audio/audio.mk)
 $(call inherit-product-if-exists, external/faceunlock/config.mk)
 $(call inherit-product, packages/services/VncFlinger/product.mk)
 
--include vendor/gms/products/gms.mk
+# Define some properties for GMS
+ifneq ($(TARGET_DOES_NOT_USE_GAPPS), true)
+$(call inherit-product-if-exists, vendor/gms/products/gms.mk)
+ifneq ($(TARGET_FLATTEN_APEX), true)
+$(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules.mk)
+else
+$(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules_flatten_apex.mk)
+endif
+endif
 
 PRODUCT_BRAND ?= RisingOS
 
