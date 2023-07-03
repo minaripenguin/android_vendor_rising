@@ -10,7 +10,8 @@ $(call inherit-product, packages/services/VncFlinger/product.mk)
 # Define some properties for GMS
 ifneq ($(TARGET_DOES_NOT_USE_GAPPS), true)
 $(call inherit-product-if-exists, vendor/gms/products/gms.mk)
-ifneq ($(TARGET_FLATTEN_APEX), true)
+# Anything including updatable_apex.mk should have done so by now.
+ifeq ($(TARGET_FLATTEN_APEX), false)
 $(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules.mk)
 else
 $(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules_flatten_apex.mk)
