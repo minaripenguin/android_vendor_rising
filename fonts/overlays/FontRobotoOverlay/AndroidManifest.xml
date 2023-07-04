@@ -22,6 +22,6 @@
 
     <application
         android:label="Roboto"
-        android:hasCode="false" />
+        android:hasCode="false" android:allowBackup="false" />
 
 </manifest>
