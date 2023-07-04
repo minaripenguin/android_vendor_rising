@@ -8,7 +8,7 @@ $(call inherit-product-if-exists, external/faceunlock/config.mk)
 $(call inherit-product, packages/services/VncFlinger/product.mk)
 
 # Define some properties for GMS
-ifneq ($(TARGET_DOES_NOT_USE_GAPPS), true)
+ifeq ($(WITH_GMS), true)
 $(call inherit-product-if-exists, vendor/gms/products/gms.mk)
 # Anything including updatable_apex.mk should have done so by now.
 ifeq ($(TARGET_FLATTEN_APEX), false)
