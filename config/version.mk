@@ -19,6 +19,7 @@ ifeq ($(filter $(CURRENT_DEVICE), $(DEVICE_LIST)), $(CURRENT_DEVICE))
        $(error **********************************************************)
        $(error *     A violation has been detected, aborting build      *)
        $(error **********************************************************)
+       RISING_BUILDTYPE := UNOFFICIAL
      else 
        $(warning **********************************************************************)
        $(warning *   There is already an official maintainer for $(CURRENT_DEVICE)    *)
@@ -46,13 +47,9 @@ else
 endif
 
 ifeq ($(WITH_GMS), true)
-    ifeq ($(TARGET_CORE_GMS), true)
-        RISING_PACKAGE_TYPE ?= CORE
-    else 
-        RISING_PACKAGE_TYPE ?= GAPPS
-    endif
+    RISING_PACKAGE_TYPE ?= GAPPS
 else
-    RISING_PACKAGE_TYPE ?= AOSP
+    RISING_PACKAGE_TYPE ?= VANILLA
 endif
 
 # Internal version
