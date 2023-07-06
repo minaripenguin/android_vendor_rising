@@ -83,13 +83,20 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.freeform_window_management.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.freeform_window_management.xml
 
+ifeq ($(TARGET_PREBUILT_GCAM), true)
+PRODUCT_PACKAGES += \
+    GoogleCameraGo
+endif
+
+ifeq ($(TARGET_PREBUILT_PIXEL_LAUNCHER), true)
+PRODUCT_PACKAGES += \
+    PixelLauncher
+endif
+
 # Core packages
 PRODUCT_PACKAGES += \
-    RisingColorStub \
-    RisingLauncher \
     RisingSettings \
     RisingSystemUI \
-    RisingThemePicker
 
 # Prebuilt packages
 PRODUCT_PACKAGES += \
