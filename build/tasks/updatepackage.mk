@@ -1,4 +1,5 @@
 # Copyright (C) 2022 PixysOS Project
+# Copyright (C) 2023 RisingOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,16 +14,32 @@
 # limitations under the License.
 
 # -----------------------------------------------------------------
-# RisingrOS OTA update package
+# RisingOS OTA update package
 
-RISING_TARGET_UPDATEPACKAGE := $(PRODUCT_OUT)/$(LINEAGE_VERSION)-updateimages.zip
+RISING_TARGET_UPDATEPACKAGE := $(PRODUCT_OUT)/$(LINEAGE_VERSION)-fastboot.zip
 
-.PHONY: updatepackage
+.PHONY: updatepackage dinner
 updatepackage: $(INTERNAL_UPDATE_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_UPDATE_PACKAGE_TARGET) $(RISING_TARGET_UPDATEPACKAGE)
 	@echo ""
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "  ______ _____ _______ _____ __   _  ______       _____  _______" >&2
+	@echo " |_____/   |   |______   |   | \  | |  ____      |     | |______" >&2
+	@echo " |    \_ __|__ ______| __|__ |  \_| |_____|      |_____| ______|" >&2
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "                   rising from the bottom                       " >&2
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "                                                                " >&2
+	@echo "****************************************************************" >&2
+	@echo " Size            : $(shell du -hs $(RISING_TARGET_UPDATEPACKAGE) | awk '{print $$1}')"
+	@echo " Size(in bytes)  : $(shell wc -c $(RISING_TARGET_UPDATEPACKAGE) | awk '{print $$1}')"
+	@echo " Package Complete: $(RISING_TARGET_UPDATEPACKAGE)               " >&2
+	@echo "****************************************************************" >&2
 	@echo ""
-	@echo "**************************************************"
-	@echo " OTA update package is ready: $(RISING_TARGET_UPDATEPACKAGE)"
-	@echo "**************************************************"
-	@echo ""
+dinner: updatepackage
