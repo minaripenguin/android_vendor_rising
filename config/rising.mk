@@ -93,10 +93,18 @@ PRODUCT_PACKAGES += \
     PixelLauncher
 endif
 
+ifeq ($(WITH_GMS), true)
+# Pixel Framework
+PRODUCT_PACKAGES += \
+    SystemUIGoogle \
+    SettingsGoogle \
+    SettingsIntelligenceGooglePrebuilt
+else 
 # Core packages
 PRODUCT_PACKAGES += \
     RisingSettings \
-    RisingSystemUI \
+    RisingSystemUI
+endif
 
 # Prebuilt packages
 PRODUCT_PACKAGES += \
