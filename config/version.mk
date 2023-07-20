@@ -48,7 +48,11 @@ else
 endif
 
 ifeq ($(WITH_GMS), true)
-    RISING_PACKAGE_TYPE ?= GAPPS
+	ifeq ($(TARGET_CORE_GMS), true)
+    	RISING_PACKAGE_TYPE ?= CORE
+	else 
+    	RISING_PACKAGE_TYPE ?= GAPPS
+	endif
 else
     RISING_PACKAGE_TYPE ?= VANILLA
 endif
