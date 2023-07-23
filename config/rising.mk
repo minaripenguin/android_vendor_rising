@@ -112,7 +112,10 @@ else
 # Core packages
 PRODUCT_PACKAGES += \
     RisingSettings \
-    RisingSystemUI
+    RisingSystemUI \
+    PixelThemesStubPrebuilt \
+    PixelThemesStub2022_and_newerPrebuilt \
+    WallpaperPickerGoogleReleasePrebuilt
 endif
 
 # Prebuilt packages

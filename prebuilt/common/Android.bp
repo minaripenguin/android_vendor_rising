@@ -15,3 +15,39 @@ android_app_import {
 	},
 	product_specific: true,
 }
+
+android_app_import {
+	name: "PixelThemesStubPrebuilt",
+	owner: "gms",
+	apk: "apps/PixelThemesStubPrebuilt.apk",
+	overrides: ["ThemePicker"],
+	presigned: true,
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "PixelThemesStub2022_and_newerPrebuilt",
+	owner: "gms",
+	apk: "apps/PixelThemesStub2022_and_newerPrebuilt.apk",
+	presigned: true,
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "WallpaperPickerGoogleReleasePrebuilt",
+	owner: "gms",
+	apk: "apps/WallpaperPickerGoogleReleasePrebuilt.apk",
+	overrides: ["WallpaperPicker", "WallpaperPicker2", "WallpaperCropper"],
+	presigned: true,
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+	system_ext_specific: true,
+}
