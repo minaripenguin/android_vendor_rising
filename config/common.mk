@@ -4,7 +4,6 @@ $(call inherit-product-if-exists, vendor/addons/config.mk)
 $(call inherit-product-if-exists, vendor/lineage/config/rising.mk)
 $(call inherit-product-if-exists, vendor/lineage/fonts/fonts.mk)
 $(call inherit-product-if-exists, vendor/lineage/audio/audio.mk)
-$(call inherit-product-if-exists, external/faceunlock/config.mk)
 $(call inherit-product, packages/services/VncFlinger/product.mk)
 
 # Define some properties for GMS
