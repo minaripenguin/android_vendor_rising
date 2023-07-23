@@ -102,12 +102,20 @@ PRODUCT_PACKAGES += \
     PixelLauncher
 endif
 
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    dalvik.vm.systemuicompilerfilter=speed
+
 ifeq ($(WITH_GMS), true)
 # Pixel Framework
 PRODUCT_PACKAGES += \
     SystemUIGoogle \
     SettingsGoogle \
     SettingsIntelligenceGooglePrebuilt
+    
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SystemUIGoogle \
+    SettingsGoogle
+
 else 
 # Core packages
 PRODUCT_PACKAGES += \
@@ -116,7 +124,14 @@ PRODUCT_PACKAGES += \
     PixelThemesStubPrebuilt \
     PixelThemesStub2022_and_newerPrebuilt \
     WallpaperPickerGoogleReleasePrebuilt
+    
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    RisingSystemUI \
+    RisingSettings
 endif
+
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Launcher3QuickStep
 
 # Prebuilt packages
 PRODUCT_PACKAGES += \

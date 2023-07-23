@@ -210,13 +210,6 @@ PRODUCT_PACKAGES += \
 endif
 endif
 
-# SystemUI
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI
-
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    dalvik.vm.systemuicompilerfilter=speed
-
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay/no-rro
 PRODUCT_PACKAGE_OVERLAYS += \
     vendor/lineage/overlay/common \
