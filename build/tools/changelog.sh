@@ -15,10 +15,13 @@
 # limitations under the License.
 #
 
+set -e
+
 # Define the variables
-Changelog=Changelog.txt
 DEVICE=$1
+Changelog=Changelog.txt
 changelog_days=${2:-10}
+OUT_DIR=out
 
 # Check if the changelog file exists, and if so, remove it
 if [ -f $Changelog ]; then
@@ -31,38 +34,66 @@ touch $Changelog
 # Get a list of all the repositories
 REPO_LIST="$(repo list --path | sed 's|^vendor/risingOTA$||')"
 
-# Loop through the specified number of days
-for i in $(seq 1 $changelog_days); do
+# date is broken on some distros (unknown option)
+# Check operating system type for date command compatiblity
+os=$(uname)
+# function to handle date format
+date_format() {
+    if [ "$os" = "Linux" ]; then
+        if [ "$1" -eq 1 ]; then
+            echo $(date -d "$1 day ago" +'%Y-%m-%d' 2> /dev/null)
+        else
+            echo $(date -d "$1 days ago" +'%Y-%m-%d' 2> /dev/null)
+        fi
+    elif [ "$os" = "Darwin" ]; then
+        echo $(date -v-"$1"d +'%Y-%m-%d' 2> /dev/null)
+    else
+        echo "Unsupported OS" >&2
+        exit 1
+    fi
+}
 
-    # Get the start and end dates
-    After_Date=`date --date="$i days ago" +%m-%d-%Y`
-    k=$(expr $i - 1)
-    Until_Date=`date --date="$k days ago" +%m-%d-%Y`
+# Loop through all the repositories
+for repo_path in $REPO_LIST; do
+    unset repo_header_written
 
-    # Add a header to the changelog file
-    echo "==================== $Until_Date =====================" >> $Changelog
+    # Loop through the specified number of days
+    for i in $(seq $changelog_days -1 1); do
 
-    # Loop through all the repositories
-    for repo_path in $REPO_LIST; do
+        # Get the start and end dates
+        Until_Date=$(date_format $(expr $i - 1))
+        After_Date=$(date_format $i)
+
+        # Create a temporary changelog file
+        Changelog_temp=$Changelog.$Until_Date
+        touch $Changelog_temp
 
         # Find commits between the two dates
-        GIT_LOG="$(git -C "$repo_path" log --oneline --after="$After_Date" --until="$Until_Date")"
+        GIT_LOG="$(git -C "$repo_path" log --pretty=format:'   - %s [%an]' --after="$After_Date" --until="$Until_Date")"
 
         # If there are any commits, add them to the changelog file
         if [ -n "$GIT_LOG" ]; then
-            printf '\n   * '; echo "$repo_path"
-            echo "$GIT_LOG" >> $Changelog
+            # Only write the repo name once for each repo, not for each day
+            if [ -z "$repo_header_written" ]; then
+                echo "$repo_path" >> $Changelog_temp
+                repo_header_written=1
+            fi
+            echo "$GIT_LOG" >> $Changelog_temp > /dev/null 2>&1
+            # If there are commits, append the temp file content to the main changelog file
+            cat $Changelog_temp >> $Changelog
+            echo "" >> $Changelog # Adds an extra line for better separation between repos > /dev/null 2>&1
         fi
+        # Remove temporary changelog file
+        rm -f $Changelog_temp
     done
-
-    # Add a blank line to the changelog file
-    echo >> $Changelog
 done
+
+# Add a blank line to the changelog file
+echo >> $Changelog
 
 # Fix the formatting of the changelog file
 sed -i 's/project/   */g' $Changelog
 
 # Copy the changelog file to the appropriate location
 cp $Changelog $OUT_DIR/target/product/$DEVICE/system/etc/
-mv $Changelog $OUT_DIR/target/product/$DEVICE/
-
+mv $Changelog $OUT_DIR/target/product/$DEVICE
