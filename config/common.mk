@@ -5,6 +5,7 @@ $(call inherit-product-if-exists, vendor/lineage/config/rising.mk)
 $(call inherit-product-if-exists, vendor/lineage/fonts/fonts.mk)
 $(call inherit-product-if-exists, vendor/lineage/audio/audio.mk)
 $(call inherit-product, packages/services/VncFlinger/product.mk)
+$(call inherit-product-if-exists, vendor/rising-prebuilts/prebuilts_product_copy.mk)
 
 # Define some properties for GMS
 ifeq ($(WITH_GMS), true)
