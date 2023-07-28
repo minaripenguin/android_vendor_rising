@@ -325,6 +325,5 @@
         <item>"/system/framework/framework.jar"</item>
         <item>"/system/framework/services.jar"</item>
         <item>"/system/bin/surfaceflinger"</item>
-        <item>"/system_ext/priv-app/RisingSystemUI/RisingSystemUI.apk"</item>
     </string-array>
 </resources>
