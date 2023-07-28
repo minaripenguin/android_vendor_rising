@@ -303,8 +303,11 @@
          contents of its manifest. -->
     <string-array name="config_forceQueryablePackages" translatable="false">
         <item>com.android.settings</item>
+        <item>com.android.providers.settings</item>
         <item>com.google.android.gms</item>
         <item>com.android.vending</item>
+        <item>org.lineageos.lineageparts</item>
+        <item>org.lineageos.lineagesettings</item>
     </string-array>
 
     <!-- A list of potential packages, in priority order, that can supply rules to
