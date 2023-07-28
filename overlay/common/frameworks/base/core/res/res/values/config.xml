@@ -308,6 +308,7 @@
         <item>com.android.vending</item>
         <item>org.lineageos.lineageparts</item>
         <item>org.lineageos.lineagesettings</item>
+        <item>com.google.android.apps.wallpaper</item>
     </string-array>
 
     <!-- A list of potential packages, in priority order, that can supply rules to
