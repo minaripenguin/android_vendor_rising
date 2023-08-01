@@ -68,5 +68,8 @@
         <item>device_personalization_services/WallpaperEffects__return_texturedmesh_with_error_status=true</item>
         <item>device_personalization_services/WallpaperEffects__use_gpu=true</item>
         <item>device_personalization_services/WallpaperEffects__cinematic_wallpaper_warmup_completed=true</item>
+
+        <!-- Globally enable the new photo picker -->
+        <item>storage_native_boot/take_over_get_content=true</item>
     </string-array>
 </resources>
