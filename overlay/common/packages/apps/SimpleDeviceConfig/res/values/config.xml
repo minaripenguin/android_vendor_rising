@@ -67,5 +67,6 @@
         <item>device_personalization_services/WallpaperEffects__enable_person_segment_tpu=false</item>
         <item>device_personalization_services/WallpaperEffects__return_texturedmesh_with_error_status=true</item>
         <item>device_personalization_services/WallpaperEffects__use_gpu=true</item>
+        <item>device_personalization_services/WallpaperEffects__cinematic_wallpaper_warmup_completed=true</item>
     </string-array>
 </resources>
