@@ -55,6 +55,8 @@ function mk_timer()
 
 function brunch()
 {
+    ./vendor/lineage/build/tools/changelog.sh $TARGET_PRODUCT
+    echo "Generating changelogs for $TARGET_PRODUCT" >&2
     breakfast $*
     if [ $? -eq 0 ]; then
         mka bacon
@@ -730,6 +732,8 @@ function lineagerebase() {
 }
 
 function mka() {
+    ./vendor/lineage/build/tools/changelog.sh $TARGET_PRODUCT
+    echo "Generating changelogs for $TARGET_PRODUCT" >&2
     m "$@"
 }
 

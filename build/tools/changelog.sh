@@ -34,8 +34,6 @@ touch $Changelog
 # Get a list of all the repositories
 REPO_LIST="$(repo list --path | sed 's|^vendor/risingOTA$||')"
 
-# date is broken on some distros (unknown option)
-# Check operating system type for date command compatiblity
 os=$(uname)
 # function to handle date format
 date_format() {
@@ -53,47 +51,37 @@ date_format() {
     fi
 }
 
+# Calculate the date range for GIT_LOG
+After_Date=$(date_format $changelog_days)
+Until_Date=$(date_format 0)
+
 # Loop through all the repositories
 for repo_path in $REPO_LIST; do
-    unset repo_header_written
+    # Find all the commits within the days specifid
+    GIT_LOG=$(git -C "$repo_path" log --pretty=format:'%cd%x09%s [%an]' --after="$After_Date" --until="$Until_Date" --date=short)
 
-    # Loop through the specified number of days
-    for i in $(seq $changelog_days -1 1); do
+    # If there are any commits, add them to the changelog file
+    if [ -n "$GIT_LOG" ]; then
+        echo -e "\n====== $repo_path ======" >> $Changelog
+        unset prev_commit_date
+        # Process each changelog/commit separately
+        echo "$GIT_LOG" | while read -r line; do
+            # Extract commit date and message
+            commit_date=${line%%$'\t'*}
+            commit_msg=${line#*$'\t'}
 
-        # Get the start and end dates
-        Until_Date=$(date_format $(expr $i - 1))
-        After_Date=$(date_format $i)
-
-        # Create a temporary changelog file
-        Changelog_temp=$Changelog.$Until_Date
-        touch $Changelog_temp
-
-        # Find commits between the two dates
-        GIT_LOG="$(git -C "$repo_path" log --pretty=format:'   - %s [%an]' --after="$After_Date" --until="$Until_Date")"
-
-        # If there are any commits, add them to the changelog file
-        if [ -n "$GIT_LOG" ]; then
-            # Only write the repo name once for each repo, not for each day
-            if [ -z "$repo_header_written" ]; then
-                echo "$repo_path" >> $Changelog_temp
-                repo_header_written=1
+            # If this commit is from a new date, print a header
+            if [ "$commit_date" != "$prev_commit_date" ]; then
+                echo -e "\n$commit_date" >> $Changelog
+                prev_commit_date=$commit_date
             fi
-            echo "$GIT_LOG" >> $Changelog_temp > /dev/null 2>&1
-            # If there are commits, append the temp file content to the main changelog file
-            cat $Changelog_temp >> $Changelog
-            echo "" >> $Changelog # Adds an extra line for better separation between repos > /dev/null 2>&1
-        fi
-        # Remove temporary changelog file
-        rm -f $Changelog_temp
-    done
+            echo -e "   - $commit_msg" >> $Changelog
+        done
+    fi
 done
-
-# Add a blank line to the changelog file
-echo >> $Changelog
 
 # Fix the formatting of the changelog file
 sed -i 's/project/   */g' $Changelog
 
 # Copy the changelog file to the appropriate location
-cp $Changelog $OUT_DIR/target/product/$DEVICE/system/etc/
-mv $Changelog $OUT_DIR/target/product/$DEVICE
+mv $Changelog $OUT_DIR/target/product/
