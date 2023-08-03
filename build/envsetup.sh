@@ -55,6 +55,8 @@ function mk_timer()
 
 function brunch()
 {
+    rm -rf out/target/product/*/obj/KERNEL_OBJ 
+    echo "Removing kernel artifacts from out/target/product/*/obj/KERNEL_OBJ" >&2
     ./vendor/lineage/build/tools/changelog.sh $TARGET_PRODUCT
     echo "Generating changelogs for $TARGET_PRODUCT" >&2
     breakfast $*
@@ -732,6 +734,8 @@ function lineagerebase() {
 }
 
 function mka() {
+    rm -rf out/target/product/*/obj/KERNEL_OBJ 
+    echo "Removing kernel artifacts from out/target/product/*/obj/KERNEL_OBJ" >&2
     ./vendor/lineage/build/tools/changelog.sh $TARGET_PRODUCT
     echo "Generating changelogs for $TARGET_PRODUCT" >&2
     m "$@"
