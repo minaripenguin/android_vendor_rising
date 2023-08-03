@@ -55,10 +55,8 @@ function mk_timer()
 
 function brunch()
 {
-    rm -rf out/target/product/*/obj/KERNEL_OBJ 
-    echo "Removing kernel artifacts from out/target/product/*/obj/KERNEL_OBJ" >&2
-    ./vendor/lineage/build/tools/changelog.sh $TARGET_PRODUCT
-    echo "Generating changelogs for $TARGET_PRODUCT" >&2
+    makecleankernel
+    makechangelog
     breakfast $*
     if [ $? -eq 0 ]; then
         mka bacon
@@ -91,6 +89,20 @@ function breakfast()
         fi
     fi
     return $?
+}
+
+function makechangelog()
+{
+    local LOCAL_TARGET_PRODUCT=${TARGET_PRODUCT#lineage_}
+    ./vendor/lineage/build/tools/changelog.sh
+    echo "Generating changelogs for $LOCAL_TARGET_PRODUCT" >&2
+}
+
+function makecleankernel()
+{
+    local TARGET_KERNEL_OUTPUT_DIR="out/target/product/*/obj/KERNEL_OBJ"
+    rm -rf $TARGET_KERNEL_OUTPUT_DIR
+    echo "Removing kernel artifacts from $TARGET_KERNEL_OUTPUT_DIR" >&2
 }
 
 alias bib=breakfast
@@ -734,12 +746,11 @@ function lineagerebase() {
 }
 
 function mka() {
-    rm -rf out/target/product/*/obj/KERNEL_OBJ 
-    echo "Removing kernel artifacts from out/target/product/*/obj/KERNEL_OBJ" >&2
-    ./vendor/lineage/build/tools/changelog.sh $TARGET_PRODUCT
-    echo "Generating changelogs for $TARGET_PRODUCT" >&2
+    makecleankernel
+    makechangelog
     m "$@"
 }
+
 
 function cmka() {
     if [ ! -z "$1" ]; then

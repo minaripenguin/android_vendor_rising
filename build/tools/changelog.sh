@@ -18,7 +18,6 @@
 set -e
 
 # Define the variables
-DEVICE=$1
 Changelog=Changelog.txt
 changelog_days=${2:-10}
 OUT_DIR=out
