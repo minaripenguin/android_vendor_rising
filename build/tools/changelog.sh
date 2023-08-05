@@ -18,14 +18,18 @@
 set -e
 
 # Define the variables
-Changelog=Changelog.txt
+OUT_DIR=out/target/product/${TARGET_PRODUCT#lineage_}
+Changelog=$OUT_DIR/Changelog.txt
 changelog_days=${2:-10}
-OUT_DIR=out
 
 # Check if the changelog file exists, and if so, remove it
 if [ -f $Changelog ]; then
     rm -f $Changelog
 fi
+
+# Create the changelog file directories
+mkdir -p $OUT_DIR
+mkdir -p $OUT_DIR/system/etc
 
 # Create the changelog file
 touch $Changelog
@@ -83,4 +87,4 @@ done
 sed -i 's/project/   */g' $Changelog
 
 # Copy the changelog file to the appropriate location
-mv $Changelog $OUT_DIR/target/product/
+mv $Changelog $OUT_DIR/system/etc/
