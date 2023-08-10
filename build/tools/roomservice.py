@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # Copyright (C) 2012-2013, The CyanogenMod Project
 #           (C) 2017-2018,2020-2021, The LineageOS Project
+#           (C) 2023 RisingOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -53,7 +54,7 @@ except:
     device = product
 
 if not depsonly:
-    print("Device %s not found. Attempting to retrieve device repository from RisingOSS-devices Github (http://github.com/RisingOSS-devices)." % device)
+    print("Device %s not found. Attempting to retrieve device repositories from GitHub (http://github.com/RisingOSS-devices)." % device)
 
 repositories = []
 
@@ -73,17 +74,20 @@ def add_auth(githubreq):
         githubreq.add_header("Authorization","Basic %s" % githubauth)
 
 if not depsonly:
-    githubreq = urllib.request.Request("https://raw.githubusercontent.com/RisingOSS-devices/mirror/master/default.xml")
+    githubreq = urllib.request.Request("https://api.github.com/orgs/RisingOSS-devices/repos")
+    add_auth(githubreq)
+    
     try:
-        result = ElementTree.fromstring(urllib.request.urlopen(githubreq).read().decode())
+        result = json.loads(urllib.request.urlopen(githubreq).read().decode())
     except urllib.error.URLError:
         print("Failed to fetch data from GitHub")
         sys.exit(1)
     except ValueError:
         print("Failed to parse return data from GitHub")
         sys.exit(1)
-    for res in result.findall('.//project'):
-        repositories.append(res.attrib['name'][10:])
+    
+    for repo in result:
+        repositories.append(repo['name'])
 
 local_manifests = r'.repo/local_manifests'
 if not os.path.exists(local_manifests): os.makedirs(local_manifests)
@@ -262,10 +266,9 @@ def get_default_or_fallback_revision(repo_name):
     githubreq = urllib.request.Request("https://api.github.com/repos/RisingOSS-devices/" + repo_name + "/branches")
     add_auth(githubreq)
     result = json.loads(urllib.request.urlopen(githubreq).read().decode())
-    if has_branch(result, default_revision):
-        return default_revision
 
-    fallbacks = [ get_default_revision_no_minor() ]
+    fallbacks = [ get_default_revision_no_minor(), "thirteen" ]
+
     if os.getenv('ROOMSERVICE_BRANCHES'):
         fallbacks += list(filter(bool, os.getenv('ROOMSERVICE_BRANCHES').split(' ')))
 
@@ -274,11 +277,10 @@ def get_default_or_fallback_revision(repo_name):
             print("Using fallback branch: %s" % fallback)
             return fallback
 
-    print("Default revision %s not found in %s. Bailing." % (default_revision, repo_name))
+    print("Default and fallback revisions not found in %s. Bailing." % repo_name)
     print("Branches found:")
     for branch in [branch['name'] for branch in result]:
         print(branch)
-    print("Use the ROOMSERVICE_BRANCHES environment variable to specify a list of fallback branches.")
     sys.exit()
 
 if depsonly:
