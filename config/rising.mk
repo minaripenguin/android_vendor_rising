@@ -109,8 +109,7 @@ ifeq ($(WITH_GMS), true)
 # Pixel Framework
 PRODUCT_PACKAGES += \
     SystemUIGoogle \
-    SettingsGoogle \
-    SettingsIntelligenceGooglePrebuilt
+    SettingsGoogle
     
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUIGoogle \
@@ -139,6 +138,7 @@ PRODUCT_PACKAGES += \
     OmniJaws \
     ParallelSpace \
     RepainterServicePriv \
+    SettingsIntelligenceGooglePrebuilt \
     Updater
 
 ifeq ($(TARGET_USE_PIXEL_FINGERPRINT), true)
