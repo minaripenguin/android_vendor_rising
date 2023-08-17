@@ -74,7 +74,7 @@ def add_auth(githubreq):
         githubreq.add_header("Authorization","Basic %s" % githubauth)
 
 if not depsonly:
-    githubreq = urllib.request.Request("https://api.github.com/orgs/RisingOSS-devices/repos")
+    githubreq = urllib.request.Request("https://api.github.com/orgs/RisingOSS-devices/repos?per_page=100")
     add_auth(githubreq)
     
     try:
