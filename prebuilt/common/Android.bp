@@ -20,7 +20,6 @@ android_app_import {
 	name: "PixelThemesStubPrebuilt",
 	owner: "gms",
 	apk: "apps/PixelThemesStubPrebuilt.apk",
-	overrides: ["ThemePicker"],
 	presigned: true,
 	dex_preopt: {
 		enabled: false,
@@ -43,7 +42,7 @@ android_app_import {
 	name: "WallpaperPickerGoogleReleasePrebuilt",
 	owner: "gms",
 	apk: "apps/WallpaperPickerGoogleReleasePrebuilt.apk",
-	overrides: ["WallpaperPicker", "WallpaperPicker2", "WallpaperCropper"],
+	overrides: ["ThemePicker", "WallpaperPicker", "WallpaperPicker2", "WallpaperCropper"],
 	presigned: true,
 	dex_preopt: {
 		enabled: false,

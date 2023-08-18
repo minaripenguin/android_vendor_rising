@@ -105,6 +105,11 @@ endif
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     dalvik.vm.systemuicompilerfilter=speed
 
+ifeq ($(TARGET_DEVICE_IS_TABLET), false)
+PRODUCT_PACKAGES += \
+    WallpaperPickerGoogleReleasePrebuilt
+endif
+
 ifeq ($(WITH_GMS), true)
 # Pixel Framework
 PRODUCT_PACKAGES += \
@@ -121,8 +126,7 @@ PRODUCT_PACKAGES += \
     RisingSettings \
     RisingSystemUI \
     PixelThemesStubPrebuilt \
-    PixelThemesStub2022_and_newerPrebuilt \
-    WallpaperPickerGoogleReleasePrebuilt
+    PixelThemesStub2022_and_newerPrebuilt
     
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     RisingSystemUI \
