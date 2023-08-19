@@ -105,6 +105,7 @@ endif
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     dalvik.vm.systemuicompilerfilter=speed
 
+TARGET_DEVICE_IS_TABLET ?= false
 ifeq ($(TARGET_DEVICE_IS_TABLET), false)
 PRODUCT_PACKAGES += \
     WallpaperPickerGoogleReleasePrebuilt
