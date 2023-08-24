@@ -33,3 +33,12 @@ android_library {
     ],
     java_version: "1.7",
 }
+
+android_library_import {
+    name: "external_glide",
+    aars: ["libs/glide-4.15.1.aar"],
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+}
