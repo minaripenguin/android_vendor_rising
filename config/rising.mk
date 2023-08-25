@@ -111,7 +111,6 @@ PRODUCT_PACKAGES += \
     WallpaperPickerGoogleReleasePrebuilt
 endif
 
-ifeq ($(WITH_GMS), true)
 # Pixel Framework
 PRODUCT_PACKAGES += \
     SystemUIGoogle \
@@ -121,17 +120,11 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUIGoogle \
     SettingsGoogle
 
-else 
+ifneq ($(WITH_GMS), true)
 # Core packages
 PRODUCT_PACKAGES += \
-    RisingSettings \
-    RisingSystemUI \
     PixelThemesStubPrebuilt \
     PixelThemesStub2022_and_newerPrebuilt
-    
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    RisingSystemUI \
-    RisingSettings
 endif
 
 PRODUCT_DEXPREOPT_SPEED_APPS += \
