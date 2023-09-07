@@ -10,12 +10,6 @@ $(call inherit-product-if-exists, vendor/rising-prebuilts/prebuilts_product_copy
 # Define some properties for GMS
 ifeq ($(WITH_GMS), true)
 $(call inherit-product-if-exists, vendor/gms/products/gms.mk)
-# Anything including updatable_apex.mk should have done so by now.
-ifeq ($(TARGET_FLATTEN_APEX), false)
-$(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules.mk)
-else
-$(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules_flatten_apex.mk)
-endif
 endif
 
 PRODUCT_BRAND ?= RisingOS
