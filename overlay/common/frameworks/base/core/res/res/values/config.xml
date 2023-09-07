@@ -325,7 +325,14 @@
         <item>"/system/framework/framework.jar"</item>
         <item>"/system/framework/services.jar"</item>
         <item>"/system/bin/surfaceflinger"</item>
+        <item>"/system_ext/priv-app/SystemUIGoogle/SystemUIGoogle.apk"</item>
     </string-array>
+
+    <!-- Should the pinner service pin the Camera application? -->
+    <bool name="config_pinnerCameraApp">true</bool>
+
+    <!-- Should the pinner service pin the Home application? -->
+    <bool name="config_pinnerHomeApp">true</bool>
     
     <!-- The behavior when the system detects it has abusive current drains, whether or not to
          move the app to the restricted standby bucket level.
