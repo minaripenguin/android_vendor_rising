@@ -34,10 +34,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.rising.platform_release_codename=$(RISING_FLAVOR)
 
 # build with compression for pixel devices by default
-ifeq ($(filter bluejay cheetah lynx oriole panther raven tangorpro, $(subst _, ,$(TARGET_PRODUCT))),)
-    TARGET_COMPRESSED_SOONG_ZIP ?= true
-else
+ifneq (,$(filter bluejay cheetah lynx oriole panther raven tangorpro, $(subst _, ,$(TARGET_PRODUCT))))
     TARGET_COMPRESSED_SOONG_ZIP ?= false
+else
+    TARGET_COMPRESSED_SOONG_ZIP ?= true
 endif
 
 TARGET_ENABLE_PRIVAPP_ENFORCEMENT ?= false
