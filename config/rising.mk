@@ -76,6 +76,9 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.launcher.blur.appLaunch=0
 endif
 
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.wm.debug.desktop_mode=true
+
 # Default boosting durations 
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.powerhal.interaction.max=64 \
