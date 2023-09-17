@@ -122,7 +122,7 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.wm.debug.desktop_mode=true
+    persist.wm.debug.desktop_mode=false
 
 ifeq ($(TARGET_DEVICE_IS_TABLET), true)
 PRODUCT_PRODUCT_PROPERTIES += \
