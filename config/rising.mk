@@ -76,9 +76,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.launcher.blur.appLaunch=0
 endif
 
-PRODUCT_PRODUCT_PROPERTIES += \
-    persist.wm.debug.desktop_mode=true
-
 # Default boosting durations 
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.powerhal.interaction.max=64 \
@@ -122,6 +119,19 @@ TARGET_DEVICE_IS_TABLET ?= false
 ifeq ($(TARGET_DEVICE_IS_TABLET), false)
 PRODUCT_PACKAGES += \
     WallpaperPickerGoogleReleasePrebuilt
+endif
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.wm.debug.desktop_mode=true
+
+ifeq ($(TARGET_DEVICE_IS_TABLET), true)
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.wm.debug.desktop_mode.default_width=840 \
+    persist.wm.debug.desktop_mode.default_height=630
+else
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.wm.debug.desktop_mode.default_width=230 \
+    persist.wm.debug.desktop_mode.default_height=360
 endif
 
 # Pixel Framework
