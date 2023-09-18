@@ -10,5 +10,4 @@ readonly devices=(
   barbet
   redfin
   bramble
-  sunfish
 )
