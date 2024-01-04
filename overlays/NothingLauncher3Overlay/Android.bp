@@ -1,0 +1,4 @@
+runtime_resource_overlay {
+    name: "NothingLauncher3Overlay",
+    product_specific: true,
+}
