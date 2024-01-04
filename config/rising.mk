@@ -49,7 +49,9 @@ endif
 
 # Dexopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Launcher3QuickStep
+    Launcher3QuickStep \
+    NexusLauncherRelease \
+    NothingLauncher3
 
 # Product Copy
 PRODUCT_COPY_FILES += \
