@@ -21,14 +21,15 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGE_OVERLAYS += \
     vendor/rising/overlays
 
-#PRODUCT_PACKAGES += \
-#    SystemUIClocks-BigNum \
-#    SystemUIClocks-Calligraphy \
-#    SystemUIClocks-Flex \
-#    SystemUIClocks-Growth \
-#    SystemUIClocks-Inflate \
-#    SystemUIClocks-NumOverlap \
-#    SystemUIClocks-Weather
+PRODUCT_PACKAGES += \
+    SystemUIClocks-BigNum \
+    SystemUIClocks-Calligraphy \
+    SystemUIClocks-Flex \
+    SystemUIClocks-Growth \
+    SystemUIClocks-Inflate \
+    SystemUIClocks-NumOverlap \
+    SystemUIClocks-Weather \
+    SystemUIClocks-Metro
 
 # Nothing
 PRODUCT_PACKAGES += \
