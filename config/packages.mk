@@ -11,7 +11,8 @@ PRODUCT_PACKAGES += \
     SettingsGoogle \
     Backgrounds \
     GameSpace \
-    Updater
+    Updater \
+    OmniJaws
 
 ifneq ($(WITH_GMS),true)
 PRODUCT_PACKAGES += \
