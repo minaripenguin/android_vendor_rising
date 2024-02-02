@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector android:tint="@color/primaryForeground" android:height="192.0dip" android:width="192.0dip" android:viewportWidth="192.0" android:viewportHeight="192.0"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <path android:fillColor="#00000000" android:pathData="M22,94.97 L96.21,27l49.26,45.42L170,94.97" android:strokeColor="@color/primaryForeground" android:strokeWidth="12.0" android:strokeLineCap="round" android:strokeLineJoin="round" />
-    <path android:fillColor="#00000000" android:pathData="M42.16,78.86v86.47h107.67V78.86" android:strokeColor="@color/primaryForeground" android:strokeWidth="12.0" android:strokeLineCap="round" android:strokeLineJoin="round" />
-    <path android:fillColor="#00000000" android:pathData="M114.71,86.24c0,7.79 -9.35,18.71 -9.35,18.71s1.56,10.81 -9.35,10.81c-10.91,0 -9.35,-10.81 -9.35,-10.81s-9.35,-10.91 -9.35,-18.71 0,-19.54 18.71,-19.54 18.71,11.64 18.71,19.54ZM104.52,127.19L87.48,127.19m0,9.25 l4.57,5.3h8.11l4.36,-5.3" android:strokeColor="@color/primaryForeground" android:strokeWidth="12.0" android:strokeLineCap="round" android:strokeLineJoin="round" />
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:tint="@color/primaryForeground" android:height="192dp" android:width="192dp" android:viewportWidth="192" android:viewportHeight="192">
+    <path android:fillColor="#00000000" android:pathData="m22,94 l74,-70 49.47,46.42L170,94" android:strokeColor="@color/primaryForeground" android:strokeWidth="12" android:strokeLineCap="round" android:strokeLineJoin="round"/>
+    <path android:fillColor="#00000000" android:pathData="M42.16,76v82a6,6 0,0 0,6 6h95.67a6,6 0,0 0,6 -6V76" android:strokeColor="@color/primaryForeground" android:strokeWidth="12" android:strokeLineCap="round" android:strokeLineJoin="round"/>
+    <path android:fillColor="#00000000" android:pathData="M115.4,81.82A23.7,23.7 0,0 1,117 90.39c0,12.43 -10.3,17.13 -11,28.61l-1,21H87l-1,-21c0,-11.41 -11,-16.19 -11,-28.61 0,-2.94 0.54,-5.85 1.6,-8.57a22.5,22.5 0,0 1,4.55 -7.26,21 21,0 0,1 6.81,-4.85A19.9,19.9 0,0 1,96 68c2.76,0 5.49,0.58 8.04,1.7a21,21 0,0 1,6.81 4.85,22.5 22.5,0 0,1 4.55,7.26" android:strokeColor="@color/primaryForeground" android:strokeWidth="12" android:strokeLineCap="round" android:strokeLineJoin="round"/>
 </vector>
