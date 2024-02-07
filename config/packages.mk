@@ -10,6 +10,7 @@ PRODUCT_PACKAGES += \
     SystemUIGoogle \
     SettingsGoogle \
     Backgrounds \
+    BatteryStatsViewer \
     GameSpace \
     Updater \
     OmniJaws
