@@ -1,4 +1,0 @@
-runtime_resource_overlay {
-    name: "GoogleSettingsOverlay",
-    product_specific: true,
-}
