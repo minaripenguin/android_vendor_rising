@@ -1,5 +1,5 @@
 include vendor/addons/config.mk
-include vendor/gms/products/gms.mk
+-include vendor/gms/products/gms.mk
 include vendor/rising/config/properties.mk
 include vendor/rising/config/packages.mk
 include vendor/rising/config/vars.mk
