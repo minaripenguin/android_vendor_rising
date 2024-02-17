@@ -1,5 +1,5 @@
 include vendor/addons/config.mk
-include vendor/gms/products/gms.mk
+-include vendor/gms/products/gms.mk
 include vendor/rising/config/properties.mk
 include vendor/rising/config/packages.mk
 include vendor/rising/config/vars.mk
@@ -8,6 +8,7 @@ include vendor/rising/audio/audio.mk
 include vendor/rising/overlays/build.mk
 include vendor/rising/prebuilts/prebuilts.mk
 include vendor/lineage/config/common_full_phone.mk
+-include vendor/pixeloverlays/config.mk
 
 PRODUCT_SOONG_NAMESPACES += \
     vendor/rising/common
@@ -59,8 +60,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.freeform_window_management.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.freeform_window_management.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.sip.voip.xml
 
+ifeq ($(LINEAGE_BUILD),)
 # Extracted APN's from Cheetah
 PRODUCT_COPY_FILES += \
     vendor/rising/prebuilts/apn/apns-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
+endif
 
 PRODUCT_COPY_FILES += vendor/rising/prebuilts/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip

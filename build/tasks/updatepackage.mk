@@ -16,7 +16,7 @@
 # -----------------------------------------------------------------
 # RisingOS OTA update package
 
-RISING_TARGET_UPDATEPACKAGE := $(PRODUCT_OUT)/$(LINEAGE_VERSION)-fastboot.zip
+RISING_TARGET_UPDATEPACKAGE := $(PRODUCT_OUT)/rising-$(RISING_BUILD_VERSION)-fastboot.zip
 
 .PHONY: updatepackage dinner
 updatepackage: $(INTERNAL_UPDATE_PACKAGE_TARGET)
