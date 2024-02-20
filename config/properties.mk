@@ -102,5 +102,8 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.pihooks.security_patch?=2017-07-05 \
     persist.sys.pihooks.build_id?=MRA58K \
     persist.sys.pihooks.build_type?=user \
-    persist.sys.pihooks.build_tags?=release-keys
+    persist.sys.pihooks.build_tags?=release-keys \
+    persist.sys.pihooks.verifiedbootstate?=green \
+    persist.sys.pihooks.flash.locked?=1 \
+    persist.sys.pihooks.vbmeta.device_state?=locked
 
