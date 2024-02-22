@@ -89,17 +89,17 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.control_privapp_permissions=log
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PIHOOKS_BUILD_DESC="full_sim6797_5u-user 6.0 MRA58K 1501209254 release-keys"
+    PIHOOKS_BUILD_DESC="F30-user 6.0 MRA58K F30.L1228.6.01.01 release-keys"
 # PropHooks
 PRODUCT_SYSTEM_PROPERTIES += \
-    persist.sys.pihooks.brand?=Kodak \
-    persist.sys.pihooks.manufacturer?=BullittGroupLimited \
-    persist.sys.pihooks.product_device?=KodakEktra \
-    persist.sys.pihooks.product_name?=Ektra \
-    persist.sys.pihooks.product_model?=Ektra \
-    persist.sys.pihooks.build_fingerprint?=Kodak/Ektra/KodakEktra:6.0/MRA58K/LTE_S0105121.0_Ektra_2.010.00_A:user/release-keys \
-    persist.sys.pihooks.first_api_level?=31 \
-    persist.sys.pihooks.security_patch?=2017-07-05 \
+    persist.sys.pihooks.brand?=Hisense \
+    persist.sys.pihooks.manufacturer?=Hisense \
+    persist.sys.pihooks.product_device?=HS6735MT \
+    persist.sys.pihooks.product_name?=F30 \
+    persist.sys.pihooks.product_model?=Hisense F30 \
+    persist.sys.pihooks.build_fingerprint?=Hisense/F30/HS6735MT:6.0/MRA58K/L1228.6.01.01:user/release-keys \
+    persist.sys.pihooks.first_api_level?=32 \
+    persist.sys.pihooks.security_patch?=2017-05-05 \
     persist.sys.pihooks.build_id?=MRA58K \
     persist.sys.pihooks.build_type?=user \
     persist.sys.pihooks.build_tags?=release-keys \
