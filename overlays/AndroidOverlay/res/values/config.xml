@@ -85,4 +85,12 @@
      <bool name="config_appCompatUserAppAspectRatioFullscreenIsEnabled">true</bool>
 
      <bool name="config_faceAuthDismissesKeyguard">false</bool>
+     
+    <string-array name="config_pihooks_exclude_list" translatable="false">
+        <item>com.google.ar.core</item>
+        <item>com.google.android.GoogleCamera</item>
+        <item>com.google.android.apps.photos</item>
+        <item>com.google.android.gms</item>
+        <item>com.google.android.setupwizard</item>
+    </string-array>
 </resources>
