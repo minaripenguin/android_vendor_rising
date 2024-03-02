@@ -89,18 +89,18 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.control_privapp_permissions=log
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PIHOOKS_BUILD_DESC="F30-user 6.0 MRA58K F30.L1228.6.01.01 release-keys"
+    PIHOOKS_BUILD_DESC="griffin-user 6.0.1 MCC24.246-37 42 release-keys"
 # PropHooks
 PRODUCT_SYSTEM_PROPERTIES += \
-    persist.sys.pihooks.brand?=Hisense \
-    persist.sys.pihooks.manufacturer?=Hisense \
-    persist.sys.pihooks.product_device?=HS6735MT \
-    persist.sys.pihooks.product_name?=F30 \
-    persist.sys.pihooks.product_model?=Hisense F30 \
-    persist.sys.pihooks.build_fingerprint?=Hisense/F30/HS6735MT:6.0/MRA58K/L1228.6.01.01:user/release-keys \
+    persist.sys.pihooks.brand?=motorola \
+    persist.sys.pihooks.manufacturer?=motorola \
+    persist.sys.pihooks.product_device?=griffin \
+    persist.sys.pihooks.product_name?=griffin \
+    persist.sys.pihooks.product_model?=XT1650-05 \
+    persist.sys.pihooks.build_fingerprint?=motorola/griffin_retcn/griffin:6.0.1/MCC24.246-37/42:user/release-keys \
     persist.sys.pihooks.first_api_level?=32 \
-    persist.sys.pihooks.security_patch?=2017-05-05 \
-    persist.sys.pihooks.build_id?=MRA58K \
+    persist.sys.pihooks.security_patch?=2016-07-01 \
+    persist.sys.pihooks.build_id?=MCC24.246-37 \
     persist.sys.pihooks.build_type?=user \
     persist.sys.pihooks.build_tags?=release-keys \
     persist.sys.pihooks.verifiedbootstate?=green \
