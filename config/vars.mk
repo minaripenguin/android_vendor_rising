@@ -39,9 +39,8 @@ SYSTEMUI_OPTIMIZE_JAVA := true
 
 ## Scudo
 
-# Disable Scudo to save RAM and use 32-bit libc variant by default
-PRODUCT_DISABLE_SCUDO := true
-MALLOC_SVELTE_FOR_LIBC32 := true
+# Use 32-bit libc variant by default
+MALLOC_SVELTE_FOR_LIBC32 ?= true
 
 ## Vendor
 PRODUCT_RESTRICT_VENDOR_FILES := false
