@@ -37,10 +37,5 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 SYSTEM_OPTIMIZE_JAVA := true
 SYSTEMUI_OPTIMIZE_JAVA := true
 
-## Scudo
-
-# Use 32-bit libc variant by default
-MALLOC_SVELTE_FOR_LIBC32 ?= true
-
 ## Vendor
 PRODUCT_RESTRICT_VENDOR_FILES := false
