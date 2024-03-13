@@ -69,10 +69,6 @@
     
     <bool name="config_supportSmartPixels">true</bool>
 
-    <!-- The type of the light sensor to be used by the display framework for things like
-         auto-brightness. If unset, then it just gets the default sensor of type TYPE_LIGHT. -->
-    <string name="config_displayLightSensorType" translatable="false">android.sensor.light</string>
-
     <!-- The package name for the system's wallpaper effects generation service.
     This service returns wallpaper effects results.
     This service must be trusted, as it can be activated without explicit consent of the user.
