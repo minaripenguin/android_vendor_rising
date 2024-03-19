@@ -82,11 +82,24 @@
 
      <bool name="config_faceAuthDismissesKeyguard">false</bool>
      
+     <!-- List of packages excluded from being spoofed by piHooks -->
     <string-array name="config_pihooks_exclude_list" translatable="false">
         <item>com.google.ar.core</item>
         <item>com.google.android.GoogleCamera</item>
         <item>com.google.android.apps.photos</item>
         <item>com.google.android.gms</item>
         <item>com.google.android.setupwizard</item>
+    </string-array>
+    
+    <!-- List of non google packages to be spoofed by piHooks as piHooks main spoof model -->
+    <string-array name="config_pihooks_extra_spoof_list" translatable="false">
+        <item>com.android.chrome</item>
+        <item>com.nhs.online.nhsonline</item>
+        <item>com.netflix.mediaclient</item>
+    </string-array>
+    
+    <!-- List of packages to be spoofed by piHooks as piHooks secondary spoof model -->
+    <string-array name="config_pihooks_secondary_model_spoof_list" translatable="false">
+        <item>com.google.android.tts</item>
     </string-array>
 </resources>
