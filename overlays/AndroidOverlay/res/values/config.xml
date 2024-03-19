@@ -89,6 +89,8 @@
         <item>com.google.android.apps.photos</item>
         <item>com.google.android.gms</item>
         <item>com.google.android.setupwizard</item>
+        <item>com.google.android.euicc</item>
+        <item>com.google.android.youtube</item>
     </string-array>
     
     <!-- List of non google packages to be spoofed by piHooks as piHooks main spoof model -->
