@@ -89,7 +89,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.control_privapp_permissions=log
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PIHOOKS_BUILD_DESC="griffin-user 6.0.1 MCC24.246-37 42 release-keys"
+    PIHOOKS_BUILD_DESC="griffin-user 6.0.1 MCC24.246-37 42 release-keys" \
+    PIHOOKS_MODEL_SPOOF="Pixel 8 Pro" \
+    PIHOOKS_TABLET_SPOOF="Pixel Tablet" \
+    PIHOOKS_SECONDARY_SPOOF="Pixel 5a"
 # PropHooks
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.pihooks.brand?=motorola \
@@ -105,5 +108,8 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.pihooks.build_tags?=release-keys \
     persist.sys.pihooks.verifiedbootstate?=green \
     persist.sys.pihooks.flash.locked?=1 \
-    persist.sys.pihooks.vbmeta.device_state?=locked
+    persist.sys.pihooks.vbmeta.device_state?=locked \
+    persist.sys.pihooks.spoof_fingerprint?=google/husky/husky:14/UQ1A.240205.004.B1/11318806:user/release-keys \
+    persist.sys.pihooks.spoof_tablet_fingerprint?=google/tangorpro/tangorpro:14/UQ1A.240105.002/11129216:user/release-keys \
+    persist.sys.pihooks.spoof_secondary_fingerprint?=google/barbet/barbet:14/UQ1A.240205.002/11224170:user/release-keys
 
