@@ -1,4 +1,4 @@
-include vendor/addons/config.mk
+-include vendor/addons/config.mk
 ifeq ($(WITH_GMS), true)
 -include vendor/gms/products/gms.mk
 endif
