@@ -49,6 +49,7 @@ android_app_import {
 	name: "NothingWeather",
 	owner: "nothing",
 	apk: "apps/Nothing/NothingWeather/NothingWeather.apk",
+	preprocessed: true,
 	presigned: true,
 	dex_preopt: {
 		enabled: false,
@@ -60,6 +61,7 @@ android_app_import {
 	name: "NothingCardService",
 	owner: "nothing",
 	apk: "apps/Nothing/NothingCardService/NothingCardService.apk",
+	preprocessed: true,
 	presigned: true,
 	dex_preopt: {
 		enabled: false,
@@ -71,6 +73,7 @@ android_app_import {
 	name: "NothingCardLab",
 	owner: "nothing",
 	apk: "apps/Nothing/NothingCardLab/NothingCardLab.apk",
+	preprocessed: true,
 	presigned: true,
 	dex_preopt: {
 		enabled: false,
